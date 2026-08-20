@@ -24,16 +24,18 @@ if ( ! class_exists( 'Woo_Variation_Swatches_Backend' ) ) {
 		}
 
 		protected function includes() {
-			require_once dirname( __FILE__ ) . '/class-woo-variation-swatches-term-meta.php';
-			require_once dirname( __FILE__ ) . '/class-woo-variation-swatches-export-import.php';
+			require_once __DIR__ . '/class-woo-variation-swatches-term-meta.php';
+			require_once __DIR__ . '/class-woo-variation-swatches-export-import.php';
 
-			require_once dirname( __FILE__ ) . '/getwooplugins/class-getwooplugins-plugin-deactivate-feedback.php';
-			require_once dirname( __FILE__ ) . '/getwooplugins/class-getwooplugins-admin-menus.php';
+			require_once __DIR__ . '/getwooplugins/class-getwooplugins-plugin-deactivate-feedback.php';
+			require_once __DIR__ . '/getwooplugins/class-getwooplugins-admin-menus.php';
 
-			require_once dirname( __FILE__ ) . '/class-woo-variation-swatches-deactivate-feedback.php';
-			require_once dirname( __FILE__ ) . '/class-woo-variation-swatches-product-edit-panel.php';
+			require_once __DIR__ . '/class-woo-variation-swatches-deactivate-feedback.php';
+			require_once __DIR__ . '/class-woo-variation-swatches-product-edit-panel.php';
 
-			require_once dirname( __FILE__ ) . '/class-woo-variation-swatches-wc-api-response.php';
+			require_once __DIR__ . '/class-woo-variation-swatches-wc-api-response.php';
+
+			require_once __DIR__ . '/class-woo-variation-swatches-color-api.php';
 		}
 
 		protected function hooks() {
@@ -95,9 +97,14 @@ if ( ! class_exists( 'Woo_Variation_Swatches_Backend' ) ) {
 			$this->get_export_import();
 			$this->get_edit_panel();
 			$this->wc_api_response();
+			$this->color_api();
 		}
 
 		// Start
+		public function color_api() {
+			return Woo_Variation_Swatches_Color_API::instance();
+		}
+
 		public function wc_api_response() {
 			return Woo_Variation_Swatches_WC_API_Response::instance();
 		}
@@ -208,7 +215,7 @@ if ( ! class_exists( 'Woo_Variation_Swatches_Backend' ) ) {
 			wp_enqueue_style( 'wp-color-picker' );
 			wp_enqueue_style( 'woo-variation-swatches-admin', woo_variation_swatches()->assets_url( "/css/admin{$suffix}.css" ), array(), woo_variation_swatches()->version() );
 
-			$prefix_wc_handle = version_compare(WC()->version, '10.3', '>=') ? 'wc-':'';
+			$prefix_wc_handle     = version_compare(WC()->version, '10.3', '>=') ? 'wc-':'';
 			$serializejson_handle = sprintf( '%sserializejson', $prefix_wc_handle);
 
 			if ( 'product' === $screen_id ) {
@@ -228,6 +235,8 @@ if ( ! class_exists( 'Woo_Variation_Swatches_Backend' ) ) {
 				'jquery',
 				'wp-color-picker-alpha',
 				'wc-enhanced-select',
+				'wp-api-fetch',
+				'wp-url',
 				$serializejson_handle,
 			), woo_variation_swatches()->version(), true );
 
@@ -240,14 +249,16 @@ if ( ! class_exists( 'Woo_Variation_Swatches_Backend' ) ) {
 				'button_title'   => esc_html__( 'Use Image', 'woo-variation-swatches' ),
 				'add_media'      => esc_html__( 'Add Media', 'woo-variation-swatches' ),
 				'ajaxurl'        => esc_url( admin_url( 'admin-ajax.php', 'relative' ) ),
+				'is_color_api_enabled'   => sanitize_text_field( woo_variation_swatches()->get_option('enable_color_api', 'no')),
 				'wc_ajax_url'    => WC_AJAX::get_endpoint( '%%endpoint%%' ),
 				'settings_url'   => esc_url( $this->get_admin_menu()->get_settings_link( 'woo_variation_swatches' ) ),
 				'settings_title' => esc_html__( 'Variation Swatches Settings', 'woo-variation-swatches' ),
-				'_wpnonce'          => wp_create_nonce( 'woo_variation_swatches' ),
+				'_wpnonce'       => wp_create_nonce( 'woo_variation_swatches' ),
 				'reset_notice'   => esc_html__( 'Are you sure you want to reset it to default setting?', 'woo-variation-swatches' ),
 				'nav_warning'    => esc_html__( 'Please save changed first.', 'woo-variation-swatches' ),
-			) );
+				) );
 		}
+
 
 		public function attribute_types() {
 

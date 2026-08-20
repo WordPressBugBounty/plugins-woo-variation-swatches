@@ -1,18 +1,21 @@
 === Variation Swatches for WooCommerce ===
 Contributors: EmranAhmed, getwooplugins, storepress
-Tags: woocommerce variation swatches, woocommerce variation, woocommerce, variation swatches, woocommerce attributes, product attributes, product color, product size, variable product attributes, variation product swatches, color variation swatch, image variation swatch, printful color swatches
+Tags: woocommerce variation swatches, woocommerce attributes swatches, woocommerce color swatches, variation swatches for woocommerce, woocommerce color and image swatches
 Requires PHP: 7.4
 Requires at least: 6.4
-Tested up to: 7.0
+Tested up to: 7.1
 WC requires at least: 8.0
-WC tested up to: 10.8
-Stable tag: 2.3.0
-License: GPLv3 or later
-License URI: http://www.gnu.org/licenses/gpl-3.0.html
+WC tested up to: 11.0
+Stable tag: 2.4.0
+License: GPL-2.0-or-later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Beautiful Color, Image and Buttons Variation Swatches For WooCommerce Product Attributes 
+WooCommerce Variation Swatches replaces boring variation dropdowns with engaging color, image, and label swatches that can boost sales and customer satisfaction.
 
 == Description ==
+Trusted by 300,000+ WooCommerce stores and backed by 900+ five-star reviews—the highest-rated WooCommerce variation swatches plugin category.
+
+Lightweight, easy to set up, and powered by GetWooPlugins' top-skilled developer & support team.
 
 === How To Install Product Variation Swatches Plugin for WooCommerce Variable Products ===
 
@@ -113,6 +116,14 @@ If you want to convert variation select dropdown into buttons. You don’t need 
 
   [Live Demo & Documentation](http://j.mp/button-to-dropdown-readme)
 <hr />
+
+👉 Type the Color Name, Get the Color Automatically
+
+No need to open the colorpicker for every term. Just type a color name, and WooCommerce Variation Swatches automatically picks a matching shade. You can still fine-tune it with the colorpicker when needed.
+
+  [Live Demo & Documentation](https://bit.ly/auto-generate-color-name)
+<hr />
+
 👉 Compatible With Elementor Page Builder Plugin
 
 Elementor works well with all the themes and plugins which respect the coding. The WooCommerce Variation Swatches plugin is compatible with the Elementor page builder plugin.
@@ -144,7 +155,7 @@ With the help of the WooCommerce Attribute Swatches plugin, you can show swatche
 
 👉 Compatible with popular WooCommerce Themes 
 
-It is the only Variation Swatches plugin in the market that runs over 200K WooCommerce stores .The plugin is compatible with major themes in the market, including OceanWP, Flatsome, Divi and many more.
+It is the only Variation Swatches plugin in the market that runs over 300K WooCommerce stores .The plugin is compatible with major themes in the market, including OceanWP, Flatsome, Divi and many more.
 
 👉 Frequently Updated And Secured Codebase 
 
@@ -400,7 +411,6 @@ Keeping your plugin updated is crucial for security and stability of your site. 
 
 We provide exclusive technical support to our customers. Our plugin has plenty of 5-star customer reviews and positive customer feedback on the WordPress plugin directory for its extraordinary support. 
 
-
 ## 🏆 Customers' Feedback For Variation Swatches For WooCommerce ##
 
 [tysonfrantz](https://wordpress.org/support/topic/great-plugin-awesome-support-127): 
@@ -493,7 +503,6 @@ We provide exclusive technical support to our customers. Our plugin has plenty o
 </ul>
 
 </blockquote>
-
 
 = Forum and Feature Request =
 
@@ -595,7 +604,49 @@ $('.variations_form').each(function(){
     $(this).wc_variation_form();
 });
 ```
-And your are ready to go.
+And you are ready to go.
+
+= Can I turn the Color API service off? =
+
+It is off by default. You enable it from plugin's settings, and you can
+disable it again at any time. With it disabled, the plugin makes no outbound
+requests at all.
+
+== External Service ==
+
+This plugin relies on the StorePress Colors API to look up a color's hex value
+from its name. The lookup happens on the server, using the WordPress HTTP API.
+
+Service: StorePress Colors API
+Provider: StorePress
+Service URL: https://colors.storepress.com/
+
+= What is sent =
+
+Only the color name you type into the search field. Nothing else is added to
+the request. A search for "Green" is sent as:
+
+https://colors.storepress.com/v1/?name=Green
+
+The service responds with the matching hex value and a color palette with 4 lighter and 4 darker colors.
+
+= When it is sent =
+
+Only when the color lookup is enabled, and only when you actively search for a color by name.
+
+This feature is disabled by default. No request is made to the service until a
+site administrator explicitly enables it under Settings. Once enabled, the
+plugin still makes no request on activation, on page load, on a schedule, or in
+the background — only when you search.
+
+= What is not sent =
+
+No personal data is transmitted. The plugin does not send your site URL, your
+site's license or API key, your email address, your username, your WordPress
+version, or any information about your site's visitors.
+
+Requests are made from your web server, not from a browser, so no visitor IP
+address, user agent, cookie, or referrer is passed to the service.
 
 == Screenshots ==
 
@@ -613,6 +664,13 @@ And your are ready to go.
 12. Global Variation Color Swatches Attribute List Preview
 
 == Changelog ==
+
+= 2.4.0 - 19-08-2026 =
+
+* Added - WP 7.1+ compatibility.
+* Added - WC 11.0+ compatibility.
+* Added - Integrate StorePress Color Api to find color hex value from a color name.
+* Fixed - A Security issue fixed reported by - Fraudless.tech
 
 = 2.3.0 - 08-06-2026 =
 

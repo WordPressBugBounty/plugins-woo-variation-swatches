@@ -1,5 +1,12 @@
 *** Variation Swatches for WooCommerce ***
 
+= 2.4.0 - 19-08-2026 =
+
+* Added - WP 7.1+ compatibility.
+* Added - WC 11.0+ compatibility.
+* Added - Integrate StorePress Color Api to find color hex value from a color name.
+* Fixed - A Security issue fixed reported by - Fraudless.tech
+
 2026-06-08 - version 2.3.0
 
 * Added - WP 7.0+ compatibility.
