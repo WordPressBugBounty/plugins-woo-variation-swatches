@@ -4,7 +4,7 @@
 	 * Plugin URI: https://wordpress.org/plugins/woo-variation-swatches/
 	 * Description: Beautiful colors, images and buttons variation swatches for woocommerce product attributes. Requires WooCommerce 8.0+
 	 * Author: Emran Ahmed
-	 * Version: 2.6.0
+	 * Version: 2.6.1
 	 * Requires PHP: 7.4
 	 * Requires at least: 6.8
 	 * Tested up to: 7.1
@@ -21,7 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 if ( ! defined( 'WOO_VARIATION_SWATCHES_PLUGIN_VERSION' ) ) {
-	define( 'WOO_VARIATION_SWATCHES_PLUGIN_VERSION', '2.6.0' );
+	define( 'WOO_VARIATION_SWATCHES_PLUGIN_VERSION', '2.6.1' );
 }
 
 if ( ! defined( 'WOO_VARIATION_SWATCHES_MINIMUM_COMPATIBLE_PRO_PLUGIN_VERSION' ) ) {
@@ -80,6 +80,10 @@ function woo_variation_swatches() {
 		return false;
 	}
 
+	if ( function_exists( 'woo_variation_swatches_pro_only_updater' ) && ! woo_variation_swatches_using_correct_pro_version() ) {
+		woo_variation_swatches_pro_only_updater();
+	}
+
 	if ( function_exists( 'woo_variation_swatches_pro' ) && woo_variation_swatches_using_correct_pro_version() ) {
 		return woo_variation_swatches_pro();
 	}
@@ -121,7 +125,7 @@ function woo_variation_swatches_deactivate_pro() {
 		// Display notice why pro version cannot activate.
 		add_action('admin_notices', 'woo_variation_swatches_deactivate_notice_pro');
 		// Deactivate the plugin silently, Prevent deactivation hooks from running.
-		deactivate_plugins( 'woo-variation-swatches-pro/woo-variation-swatches-pro.php', true );
+		// deactivate_plugins( 'woo-variation-swatches-pro/woo-variation-swatches-pro.php', true );
 	}
 }
 

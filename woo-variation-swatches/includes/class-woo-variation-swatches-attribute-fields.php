@@ -56,7 +56,7 @@ if ( ! class_exists( 'Woo_Variation_Swatches_Attribute_Fields' ) ) :
 
 		public function save_attribute_fields($attribute_id): void {
 
-			if (  isset( $_POST[$this->option] ) ) { //phpcs:ignore WordPress.Security.NonceVerification.Missing -- nonce is already verified by woocommerce
+			if ( isset( $_POST[$this->option] ) ) { //phpcs:ignore WordPress.Security.NonceVerification.Missing -- Nonce is already verified by woocommerce
 
 				$data = map_deep( $_POST[$this->option], 'sanitize_text_field' ); //phpcs:ignore WordPress.Security.NonceVerification.Missing -- nonce is already verified by woocommerce
 

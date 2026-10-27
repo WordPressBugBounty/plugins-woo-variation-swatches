@@ -7,7 +7,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language-Team: Emran Ahmed <emran.bd.08@gmail.com>\n"
-"POT-Creation-Date: 2026-10-20 16:08+0000\n"
+"POT-Creation-Date: 2026-10-27 13:35+0000\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;_nx_noop:1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
 "X-Poedit-SearchPath-0: .\n"
@@ -1065,11 +1065,11 @@ msgid "WooCommerce"
 msgstr ""
 
 #. translators: %s: Pro Plugin Version
-#: ../woo-variation-swatches.php:140
+#: ../woo-variation-swatches.php:144
 msgid "You are running older version of \"Variation Swatches for WooCommerce - Pro\". Please upgrade to %s or upper and continue."
 msgstr ""
 
 #. translators: %s: Pro Plugin Version
-#: ../woo-variation-swatches.php:158
+#: ../woo-variation-swatches.php:162
 msgid "You are running older version of \"Variation Swatches for WooCommerce - Pro\". Please upgrade to %s or upper."
 msgstr ""

@@ -232,7 +232,7 @@ if ( ! class_exists( 'Woo_Variation_Swatches_Backend' ) ) {
 							 *
 							 * @since 3.4.0
 							 */
-							echo '<option ' . wc_implode_html_attributes( $option_attributes ) . '>' . esc_html( apply_filters( 'woocommerce_product_attribute_term_name', $selected_term->name, $selected_term ) ) . '</option>';
+							echo '<option ' . wc_implode_html_attributes( $option_attributes ) . '>' . esc_html( apply_filters( 'woocommerce_product_attribute_term_name', $selected_term->name, $selected_term ) ) . '</option>'; //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Escaped in wc_implode_html_attributes function.
 						}
 					}
 					?>

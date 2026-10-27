@@ -6,7 +6,7 @@ Requires at least: 6.8
 Tested up to: 7.1
 WC requires at least: 8.0
 WC tested up to: 11.2
-Stable tag: 2.6.0
+Stable tag: 2.6.1
 License: GPL-2.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -348,6 +348,10 @@ Yes. Premium adds radio button swatches, product-level (custom) attribute suppor
 12. Global Variation Color Swatches Attribute List Preview
 
 == Changelog ==
+
+= 2.6.1 - 20-10-2026 =
+* Fixed: Empty Variation Product Issue fixed.
+* Tweak: Auto Deactivate In compatible pro version.
 
 = 2.6.0 - 20-10-2026 =
 * Added: Minimum WordPress version raised to 6.8

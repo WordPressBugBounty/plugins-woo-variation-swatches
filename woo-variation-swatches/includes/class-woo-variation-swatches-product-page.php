@@ -161,7 +161,7 @@ if ( ! class_exists( 'Woo_Variation_Swatches_Product_Page' ) ) {
 			return $limit;
 		}
 
-		public function get_variation_threshold_max( $product ) {
+		public function get_variation_threshold_max( $product ): int {
 			return absint( apply_filters( 'woo_variation_swatches_global_ajax_variation_threshold_max', 100, $product ) );
 		}
 
@@ -263,11 +263,11 @@ if ( ! class_exists( 'Woo_Variation_Swatches_Product_Page' ) ) {
 			return str_replace( $entities, $replacements, $content );
 		}
 
-		public function inline_svg( $content ) {
+		public function inline_svg( $content ): string {
 			return sprintf( 'url("data:image/svg+xml;utf8,%s")', $this->inline_svg_encode( $content ) );
 		}
 
-		public function implode_css_property_value( $raw_properties ) {
+		public function implode_css_property_value( $raw_properties ): string {
 			$properties = array();
 			foreach ( $raw_properties as $name => $value ) {
 				$properties[] = esc_attr( $name ) . ':' . esc_attr( $value );
@@ -346,7 +346,7 @@ if ( ! class_exists( 'Woo_Variation_Swatches_Product_Page' ) ) {
 			) );
 		}
 
-		public function is_archive( $data ) {
+		public function is_archive( $data ): bool {
 			return isset( $data[ 'is_archive' ] ) && wc_string_to_bool( $data[ 'is_archive' ] );
 		}
 
@@ -383,14 +383,14 @@ if ( ! class_exists( 'Woo_Variation_Swatches_Product_Page' ) ) {
 			return $raw_html_attributes;
 		}
 
-		public function wrapper_start( $args, $attribute, $product, $attribute_type, $options ) {
+		public function wrapper_start( $args, $attribute, $product, $attribute_type, $options ): string {
 
 			$html_attributes = $this->wrapper_html_attribute( $args, $attribute, $product, $attribute_type, $options );
 
 			return sprintf( '<ul %s>', wc_implode_html_attributes( $html_attributes ) );
 		}
 
-		public function wrapper_end() {
+		public function wrapper_end(): string {
 			return '</ul>';
 		}
 
@@ -455,7 +455,7 @@ if ( ! class_exists( 'Woo_Variation_Swatches_Product_Page' ) ) {
 			return $html_attributes;
 		}
 
-		public function item_end() {
+		public function item_end(): string {
 
 			$html            = '';
 			$show_stock_info =  woo_variation_swatches()->is_pro() && wc_string_to_bool( woo_variation_swatches()->get_option( 'show_variation_stock_info', 'no' ) );
@@ -552,7 +552,7 @@ if ( ! class_exists( 'Woo_Variation_Swatches_Product_Page' ) ) {
 			}, array() );
 		}
 
-		public function get_variation_data_by_attribute_name( $available_variations, $attribute_name ) {
+		public function get_variation_data_by_attribute_name( $available_variations, $attribute_name ): array {
 
 			$assigned       = array();
 			$attribute_name = wc_variation_attribute_name( $attribute_name );
@@ -767,7 +767,7 @@ if ( ! class_exists( 'Woo_Variation_Swatches_Product_Page' ) ) {
 			}
 		}
 
-		public function get_variation_img_src( $image_id, $image_size ) {
+		public function get_variation_img_src( $image_id, $image_size ): array {
 			$image = array(
 				'src'     => woo_variation_swatches()->images_url( '/placeholder.png' ),
 				'width'   => 50,
@@ -907,11 +907,11 @@ if ( ! class_exists( 'Woo_Variation_Swatches_Product_Page' ) ) {
 			$options               = $args[ 'options' ];
 			$product               = $args[ 'product' ];
 			$attribute             = $args[ 'attribute' ];
-			$name                  = $args[ 'name' ] ?: wc_variation_attribute_name( $attribute );
-			$id                    = $args[ 'id' ] ?: sanitize_title( $attribute );
+			$name                  = $args[ 'name' ] ?? wc_variation_attribute_name( $attribute );
+			$id                    = $args[ 'id' ] ?? sanitize_title( $attribute );
 			$class                 = $args[ 'class' ];
 			$show_option_none      = (bool) $args[ 'show_option_none' ];
-			$show_option_none_text = $args[ 'show_option_none' ] ?: esc_html__( 'Choose an option', 'woo-variation-swatches' ); // We'll do our best to hide the placeholder, but we'll need to show something when resetting options.
+			$show_option_none_text = $args[ 'show_option_none' ] ?? esc_html__( 'Choose an option', 'woo-variation-swatches' ); // We'll do our best to hide the placeholder, but we'll need to show something when resetting options.
 
 			if ( empty( $options ) && ! empty( $product ) && ! empty( $attribute ) ) {
 				$attributes = $product->get_variation_attributes();
