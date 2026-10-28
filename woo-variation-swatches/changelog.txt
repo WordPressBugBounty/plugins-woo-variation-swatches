@@ -1,5 +1,10 @@
 *** Variation Swatches for WooCommerce ***
 
+28-10-2026 - version 2.6.2
+
+* Fixed: Swatch dropdown `id`, `name` and "Choose an option" text now fall back to defaults when an empty value is passed, not only when it is missing.
+* Fixed: Fixed: The `aria-label` attribute is only added when its value is a string, so a non-string value no longer produces a broken attribute.
+
 27-10-2026 - version 2.6.1
 
 * Fixed: Empty Variation Product Issue fixed.

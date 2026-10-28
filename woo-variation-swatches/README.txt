@@ -6,7 +6,7 @@ Requires at least: 6.8
 Tested up to: 7.1
 WC requires at least: 8.0
 WC tested up to: 11.2
-Stable tag: 2.6.1
+Stable tag: 2.6.2
 License: GPL-2.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -349,7 +349,12 @@ Yes. Premium adds radio button swatches, product-level (custom) attribute suppor
 
 == Changelog ==
 
-= 2.6.1 - 20-10-2026 =
+= 2.6.2 - 28-10-2026 =
+
+* Fixed: Swatch dropdown `id`, `name` and "Choose an option" text now fall back to defaults when an empty value is passed, not only when it is missing.
+* Fixed: Fixed: The `aria-label` attribute is only added when its value is a string, so a non-string value no longer produces a broken attribute.
+
+= 2.6.1 - 27-10-2026 =
 * Fixed: Empty Variation Product Issue fixed.
 * Tweak: Auto Deactivate In compatible pro version.
 
